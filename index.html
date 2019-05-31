@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tax calculator</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+<body>
+  <div class="container">
+
+<div class="middle-content col-lg-12 col-md-8">
+      <h3 class="text-center">Tax calculator</h3>
+<div class="col-lg-6 offset-lg-3 col-md-8 col-sm-6 col-sm-12 offset-lg-2 container form-container">
+<form class="form-horizontal" id="tax-form" action="" method="post">
+  <div class="form-group">
+    <div class="">
+      <input type="text" class="form-control" id="salary_per_month" placeholder="Monthly Salary">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="">
+      <div class="checkbox">
+        <label for"married">
+          <input type="checkbox" id="is_married" name="married">Check if Married
+        </label>
+      </div>
+    </div>
+    <div class="">
+      <div class="checkbox">
+        <label for="yearly_bonus">
+          <input type="checkbox" id="yearly_bonus" name="yearly_bonus">Yearly Bonus?
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="">
+      <div class="checkbox">
+        <label for="cit_deposit">
+          <input type="checkbox" id="cit_deposit" name="cit_deposit"> Check if CIT deposited
+        </label>
+      </div>
+    </div>
+
+    <div class="" id="cit-div" style="display:none;">
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="cit_amount_monthly" placeholder="Monthly cit deposit">
+    </div>
+    </div>
+
+  </div>
+
+
+  <div class="form-group">
+    <div class="">
+      <div class="checkbox">
+        <label for"insurance_deposit">
+          <input type="checkbox" id="insurance_deposit" name="insurance_deposit">Check if Insured
+        </label>
+      </div>
+    </div>
+
+    <div class="" id="insurance-div" style="display:none;">
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="insurance_amount" placeholder="Yearly premium Amount">
+    </div>
+  </div>
+
+  </div>
+
+
+
+
+
+
+  <div class="form-group">
+    <div class="">
+      <button type="submit" id="calculate_tax" class="btn btn-info">Calculate tax</button>
+    </div>
+  </div>
+</form>
+</div>
+
+</div>
+
+
+<table class="table table-bordered table-hovered" id="info-table">
+  <thead>
+    <tr>
+      <td>
+        Yearly Salary
+      </td>
+
+      <td>
+        Cit Deposit(Yearly)
+      </td>
+      <td>
+        Insurance Deposit(monthly)
+      </td>
+      <td>
+        Total Taxable amount(yearly)
+      </td>
+
+
+      <td>
+        First slab tax (1%)
+      </td>
+
+
+      <td>
+        Second slab tax (15%)
+      </td>
+
+      <td>
+        Third slab tax (25%)
+      </td>
+      <td>
+        Total tax
+      </td>
+
+       <td>
+        Tax per month
+      </td>
+
+    </tr>
+  </thead>
+  <tbody id="tax-row">
+  </tbody>
+</table>
+
+
+<script id="tax-template" type="text/x-handlebars-template">
+<tr>
+<td>{{yearly_salary}}</td>
+<td>{{cit_deposit}}</td>
+<td>{{insurance_deposit}}</td>
+<td>{{total_taxable}}</td>
+<td>{{first_slab}}</td>
+<td>{{second_slab}}</td>
+<td>{{third_slab}}</td>
+<td>{{total_tax}}</td>
+<td>{{tax_per_month}}</td>
+</tr>
+</script>
+
+
+  </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap.js"></script>
+
+    <script src="taxCalcuate.min.js"></script>
+    <script src="handlebars-v2.0.0.js"></script>
+  </body>
+</html>
